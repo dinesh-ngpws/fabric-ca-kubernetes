@@ -15,7 +15,7 @@
   spec:
     storageClassName: ca-slow
     accessModes:
-      - ReadWriteMany
+      - ReadWriteOnce
     resources:
       requests:
         storage: 3Gi
@@ -39,7 +39,7 @@ spec:
       containers:
       - name: tls-ca
         image: hyperledger/fabric-ca:1.4.6
-        command: ["sh","-c","cp /etc/hyperledger/fabric-ca-server-config.yaml /etc/hyperledger/fabric-ca-server/; fabric-ca-server start"]
+        command: ["sh","-c","cp /etc/hyperledger/fabric-ca-server-config.yaml /etc/hyperledger/fabric-ca-server/;fabric-ca-server start"]
         ports:
         - containerPort: 7054
         volumeMounts:
@@ -50,8 +50,6 @@ spec:
         env:
           - name: FABRIC_CA_SERVER_HOME
             value: /etc/hyperledger/fabric-ca-server
-          - name: FABRIC_CA_SERVER_CSR_HOSTS
-            value: 35.205.97.233
       volumes:
         - name: ca-config
           configMap:

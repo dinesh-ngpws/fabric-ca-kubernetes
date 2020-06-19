@@ -7,7 +7,7 @@ spec:
   - host: tls-ca.dev.blockchain.factorialofn.in
     http:
       paths: 
-      - path: /enroll
+      - path: "/*"
         backend: 
           serviceName: tls-ca
           servicePort: 7054

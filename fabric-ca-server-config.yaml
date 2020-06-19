@@ -44,7 +44,7 @@ port: 7054
 
 # Cross-Origin Resource Sharing (CORS)
 cors:
-    enabled: false
+    enabled: true
     origins:
       - "*"
 
@@ -66,7 +66,7 @@ crlsizelimit: 512000
 #############################################################################
 tls:
   # Enable TLS (default: false)
-  enabled: true
+  enabled: false
   # TLS for the server's listening port
   certfile:
   keyfile:
@@ -88,9 +88,9 @@ ca:
   # Name of this CA
   name: tls-ca.dev.blockchain.factorialofn.in
   # Key file (is only used to import a private key into BCCSP)
-  keyfile: /home/sachin/nativ/CA/cli/tls-ca-cert.key
+  keyfile: /etc/hyperledger/fabric-ca-server/tls-ca-cert.key
   # Certificate file (default: ca-cert.pem)
-  certfile: /home/sachin/nativ/CA/cli/tls-ca-cert.pem
+  certfile: /etc/hyperledger/fabric-ca-server/tls-ca-cert.pem
   # Chain file
   chainfile:
 
@@ -319,7 +319,7 @@ csr:
         O: factorialofn
         OU: blockchain
    hosts:
-     - tls-ca.dev.blockchain.factorialofn.in
+     - "35.189.251.249" #"tls-ca.dev.blockchain.factorialofn.in"
    ca:
       expiry: 131400h
       pathlength: 1
